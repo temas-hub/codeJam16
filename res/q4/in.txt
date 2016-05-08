@@ -1,0 +1,28 @@
+5
+2 3 2
+1 1 1
+2 1 1
+2 1 2
+3 2 3
+
+
+Original sequence GGG: GGGGGGGGG
+Original sequence GGL: GGGGGGGGL
+Original sequence GLG: GGGGLGGGG
+Original sequence GLL: GGGGLLGLL
+Original sequence LGG: LGGGGGGGG
+Original sequence LGL: LGLGGGLGL
+Original sequence LLG: LLGLLGGGG
+Original sequence LLL: LLLLLLLLL
+
+
+
+LLGLL
+GLLLG
+GLLLL
+
+
+
+LLGLL LLGLL GGGGG LLGLL LLGLL
+GGGGG GLLLG GLLLG GLLLG GGGGG
+GGGGG GLLLL GLLLL GLLLL LLLLL
