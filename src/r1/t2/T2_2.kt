@@ -18,7 +18,7 @@ import java.util.*
  * Date: 04.05.13
  */
 
-val IN = "res/r1/t2/B-large-practice.in"
+val IN = "res/r1/t2/B-small-practice.in"
 val OU = "res/r1/t2/B-small-practice.out"
 
 //val IN = "res/r1/t2/sample.in"
@@ -104,15 +104,7 @@ object T2_2 {
                     minDiff = diff
                     can1 = s1
                     can2 = s2
-                } /*else if (diff.equals(minDiff) && can1 != null && sNum1 < Integer.valueOf(can1)) {
-                    minDiff = diff
-                    can1 = s1
-                    can2 = s2
-                } else if (can2 != null && diff.equals(minDiff) && sNum1.equals(Integer.valueOf(can1)) && sNum2 < Integer.valueOf(can2)) {
-                    minDiff = diff
-                    can1 = s1
-                    can2 = s2
-                } */
+                }
             }
 
             fw.write(String.format("Case #%d: %s %s\n", i, can1, can2))
