@@ -31,18 +31,23 @@ fun main(args: Array<String>) {
 
         val list = ma.mapIndexed { idx, v -> Triple(idx, v, 1) }.
                 plus(na.mapIndexed { idx, v -> Triple(idx, v, 0) }).
-                sortedByDescending { it.second + it.third}
+                sortedByDescending { it.second + it.third / 2}
         var mc = 1
         var nc = 1
         list.forEach {
             if (it.third == 0) {
                 result += it.second * nc
+                println("${it.second} <-> $nc")
+                println(it.second * nc)
                 mc++
             } else {
                 result += it.second * mc
+                println("${it.second} <-> $mc")
+                println(it.second * mc)
                 nc++
             }
         }
+        println("---")
         fw.write(result.toString() + "\n")
     }
     fw.flush()
