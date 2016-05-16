@@ -15,7 +15,7 @@ val <T> List<T>.tail: List<T>
 val <T> List<T>.head: T
     get() = first()
 
-operator fun Pair<String,String>.compareTo(p : Pair<String, String>): Int {
+operator fun Pair<String,String>.compareTo(p : Pair<String, String>): Int {   // < > ==
     val diff = Math.abs(first.toLong() - second.toLong()) - Math.abs(p.first.toLong() - p.second.toLong())
     when {
         diff < 0 -> return -1
