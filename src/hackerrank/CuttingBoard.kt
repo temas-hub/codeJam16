@@ -1,6 +1,5 @@
 package hackerrank
 
-import r1.t2.T2_3
 import java.io.BufferedReader
 import java.io.BufferedWriter
 import java.io.FileReader
@@ -18,36 +17,27 @@ fun main(args: Array<String>) {
     val br = BufferedReader(FileReader(IN))
     val fw = BufferedWriter(FileWriter(OU))
 
+    fun readInts() = br.readLine().split(" ").map { it.toInt() }
+
     var line = br.readLine()
     val numCases = Integer.valueOf(line)
 
     for (i in 1..numCases) {
-        var result : Long = 0
-        val mn = br.readLine().split(" ")
-        val m = mn[0].toInt()
-        val n = mn[1].toInt()
-        val ma = br.readLine().split(" ").map { it.toInt() }
-        val na = br.readLine().split(" ").map { it.toInt() }
+        br.readLine() //skip
 
-        val list = ma.mapIndexed { idx, v -> Triple(idx, v, 1) }.
-                plus(na.mapIndexed { idx, v -> Triple(idx, v, 0) }).
-                sortedByDescending { it.second + it.third / 2}
-        var mc = 1
-        var nc = 1
-        list.forEach {
-            if (it.third == 0) {
-                result += it.second * nc
-                println("${it.second} <-> $nc")
-                println(it.second * nc)
-                mc++
-            } else {
-                result += it.second * mc
-                println("${it.second} <-> $mc")
-                println(it.second * mc)
-                nc++
-            }
-        }
-        println("---")
+        var result : Long = 0
+        val mc = arrayOf(1)
+        val nc = arrayOf(1)
+        val ma = readInts()
+        val na = readInts()
+
+        ma.map { Pair(it, Triple(nc, mc, 1))}.plus(
+         na.map{ Pair(it, Triple(mc, nc, 0))}).sortedByDescending { it.first + it.second.third / 2}.
+                forEach {
+                    result += it.first * it.second.first[0]
+                    it.second.second[0]++
+                }
+
         fw.write(result.toString() + "\n")
     }
     fw.flush()
