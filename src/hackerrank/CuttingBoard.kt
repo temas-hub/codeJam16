@@ -25,6 +25,7 @@ fun main(args: Array<String>) {
     for (i in 1..numCases) {
         br.readLine() //skip
 
+        // solution #1
         var result : Long = 0
         val mc = arrayOf(1)
         val nc = arrayOf(1)
@@ -39,6 +40,12 @@ fun main(args: Array<String>) {
                 }
 
         fw.write(result.toString() + "\n")
+
+        // solution #2
+        val res2 = listOf(Triple(0,1,1)).plus(ma.map { Triple(it, 0, 1) }.plus(
+                na.map { Triple(it, 1, 0)} ).sortedByDescending { it.first + it.third / 2 }).
+                reduce { t1, t2 -> Triple(t1.first + t2.first * (t1.second*t2.third + t1.third*t2.second), t1.second + t2.second, t1.third + t2.third) }
+        fw.write(res2.first.toString() + "\n")
     }
     fw.flush()
     fw.close()
